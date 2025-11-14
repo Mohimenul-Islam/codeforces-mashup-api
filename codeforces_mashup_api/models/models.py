@@ -16,14 +16,14 @@ class Problem(SQLModel):
     name: str
     contest_id: int
     index: str
-    raing: int
+    rating: int
 
 #3.Database Table Model
 #This is the model that defines our DB table
 # 'table=True' tells SQLModel to create a table for this
 class Mashup(SQLModel, table = True):
     id: Optional[int] = Field(default = None, primary_key = True)
-    request_data = str #We will store the request as string 
+    request_data : str #We will store the request as string 
 
     #We store the list of problems as a JSON string
     #This is simpler than creating a complex table relationship
