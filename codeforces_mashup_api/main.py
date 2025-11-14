@@ -79,3 +79,29 @@ def create_mashup(
         mashup_id=db_mashup.id,
         problems=problems_list
     )
+
+@app.get("/mashup/{mashup_id}", response_model=MashupResponse)
+def get_mashup(
+    mashup_id: int, 
+    session: Session = Depends(get_session)
+):
+    """
+    Retrieve a previously generated mashup by its ID.
+    """
+    
+    # 1. Find the mashup in the database by its ID
+    db_mashup = session.get(Mashup, mashup_id)
+    
+    # 2. Handle if not found
+    if not db_mashup:
+        raise HTTPException(status_code=404, detail="Mashup not found")
+
+    # 3. Re-create the data for the response
+    # We need to convert the JSON strings back into objects
+    problems_list = [Problem(**p) for p in json.loads(db_mashup.problems)]
+    
+    # 4. Return the Response
+    return MashupResponse(
+        mashup_id=db_mashup.id,
+        problems=problems_list
+    )
