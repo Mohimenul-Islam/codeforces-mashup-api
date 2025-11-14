@@ -1,0 +1,22 @@
+# Python virtual environment
+.venv/
+*/.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Database file
+*.db
+*.sqlite
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Poetry
+.poetry/
+
+# VSCode
+.vscode/
