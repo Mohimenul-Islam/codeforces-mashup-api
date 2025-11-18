@@ -99,27 +99,12 @@ codeforces-mashup-api/
 │       ├── main.py          # FastAPI application and endpoints
 │       ├── db.py            # Database configuration
 │       ├── models/
-│       │   └── models.py    # Pydantic models
+│       │   └── models.py    # SQLModel models
 │       └── core/
 │           └── cf_api.py    # Codeforces API integration
 ├── pyproject.toml
 ├── poetry.lock
 └── README.md
-```
-
-## Development
-
-### Running Tests
-
-```bash
-poetry run pytest
-```
-
-### Code Formatting
-
-```bash
-poetry run black src/
-poetry run isort src/
 ```
 
 ## License
